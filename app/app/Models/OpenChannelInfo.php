@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class OpenChannelInfo extends BaseModel
 {
-    use HasFactory;
+    protected $table = 'open_channel_info';
 }

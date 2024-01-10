@@ -9,12 +9,7 @@ class YwzController extends Controller
 {
     public function index()
     {
-        $model = new OpenChannelInfo();
-        $data = [
-            'name' => 'test',
-            'appkey' => 111111,
-            'status' => 1,
-        ];
-        $model->create($data);
+        $res = (new OpenChannelInfo())->perPaginate(['status'=>1],['name','id'],2,1);
+        echo json_encode($res);
     }
 }
