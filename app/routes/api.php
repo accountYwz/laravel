@@ -21,3 +21,5 @@ Route::get('/index', function (Request $request) {
     return 1000;
 });
 Route::get('/ywz',[App\Http\Controllers\YwzController::class,'index']);
+Route::get('/redis',[App\Http\Controllers\YwzController::class,'redis']);
+
