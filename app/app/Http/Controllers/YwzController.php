@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OpenChannelInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Redis\Connections\Connection;
 class YwzController extends Controller
 {
     public function index()
