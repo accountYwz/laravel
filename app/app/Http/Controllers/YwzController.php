@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\OpenChannelInfo;
 use Illuminate\Http\Request;
+use Illuminate\Redis\Connections\PredisConnection;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Redis\Connections\Connection;
+use Predis\Client;
+use SimpleXMLIterator;
+use App\Service\Cache\SingletonRedisService;
 class YwzController extends Controller
 {
     public function index()
@@ -22,6 +26,14 @@ class YwzController extends Controller
         $a = Redis::get('name');
         echo $a;
 
+        $redis = new Client();
+        $redis->set('foo', 'bar');
+
+        $singletonRedis = SingletonRedisService::getInstance();
+        $redis = $singletonRedis->set();
+        $redis->set('foo', 'bar111');
+        $res = $redis->get('foo');
+        var_dump($res);
     }
 
 }
